@@ -1,0 +1,24 @@
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu a{
+    text-decoration: none;
+    color: var(--linkColor);
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.linkItem{
+    border-bottom: 1px solid var(--underlineColor);
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    padding-left: 45px;
+}
+.linkItem span {
+    margin-left: 10px;
+}

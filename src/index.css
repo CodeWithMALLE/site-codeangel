@@ -1,0 +1,9 @@
+:root{
+  --underlineColor: #4c4d4c;
+  --linkColor: #aba8a7;
+}
+
+body{
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}

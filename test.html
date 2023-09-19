@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="job-title"></h1>
+    </div>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #job-title {
+            font-size: 24px;
+            font-weight: bold;
+            border-right: 2px solid #000;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3s steps(30) 1s 1 normal both, blink-caret 0.75s steps(1) infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #000;
+            }
+        }
+    </style>
+    <script>
+        const jobTitleElement = document.getElementById('job-title');
+        const jobTitles = ['Développeur Web', 'Designer UI/UX', 'Scrum Master', 'Architecte Logiciel'];
+        let currentIndex = 0;
+
+        function typeJobTitle() {
+            if (currentIndex < jobTitles.length) {
+                const currentJobTitle = jobTitles[currentIndex];
+                const typingDelay = currentJobTitle.length * 50;
+
+                setTimeout(() => {
+                    jobTitleElement.textContent = currentJobTitle;
+                    currentIndex++;
+
+                    setTimeout(deleteJobTitle, 2000);
+                }, typingDelay);
+            } else {
+                currentIndex = 0;
+                setTimeout(typeJobTitle, 0);
+            }
+        }
+
+        function deleteJobTitle() {
+            const currentText = jobTitleElement.textContent;
+            if (currentText.length > 0) {
+                setTimeout(() => {
+                    jobTitleElement.textContent = currentText.slice(0, -1);
+                    deleteJobTitle();
+                }, 50);
+            } else {
+                setTimeout(typeJobTitle, 1000);
+            }
+        }
+
+        typeJobTitle();
+    </script>
+</body>
+</html>
